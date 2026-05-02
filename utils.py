@@ -109,14 +109,14 @@ def add2path() :
 def compil(chemin_fichier):
     dossier = os.path.dirname(chemin_fichier)
     nom_fichier = os.path.basename(chemin_fichier)
-    system = platform.system()
-    if shutil.which("latexmk"):
-        cmd = ["latexmk", "-pdf", "-interaction=nonstopmode", nom_fichier]
-    elif system == "Windows" :
-        if shutil.which("pdflatex") is  None :
-            add2path()
-        cmd = ["pdflatex", "-interaction=nonstopmode", nom_fichier]
-    subprocess.run(cmd,cwd=dossier, stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL, check=True)
+#    system = platform.system()
+#    if shutil.which("latexmk"):
+#        cmd = ["latexmk", "-pdf", "-interaction=nonstopmode", nom_fichier]
+#    elif system == "Windows" :
+#        if shutil.which("pdflatex") is  None :
+#            add2path()
+#        cmd = ["pdflatex", "-interaction=nonstopmode", nom_fichier]
+    subprocess.run("latexmk",cwd=dossier, stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL, check=True)
 
 from resolutions import*
 from derivation import*
