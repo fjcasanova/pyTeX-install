@@ -14,14 +14,6 @@ def detect_latex_system():
     else:
         return None
 
-sys.path.insert(1, './methodes')
-
-for name in ["sympy", "latex2sympy2"] :
-    try:
-        importlib.import_module(name)
-    except ImportError:
-        print(f"{name} non trouvé, installation en cours...")
-        subprocess.check_call([sys.executable, "-m", "pip", "install", name])
 
 def enable_miktex_auto_install():
     possible_paths = [r"C:\Program Files\MiKTeX\miktex\bin\x64\initexmf.exe", r"C:\Program Files (x86)\MiKTeX\miktex\bin\initexmf.exe", rf"C:\Users\{os.getenv('USERNAME')}\AppData\Local\Programs\MiKTeX\miktex\bin\x64\initexmf.exe"]
@@ -89,6 +81,15 @@ elif system == "Darwin":
             print("Réponse invalide. Tapez 'oui' ou 'non'")
 
 
+sys.path.insert(1, './methodes')
+
+for name in ["sympy", "latex2sympy2"] :
+    try:
+        importlib.import_module(name)
+    except ImportError:
+        print(f"{name} non trouvé, installation en cours...")
+        subprocess.check_call([sys.executable, "-m", "pip", "install", name])
+        
 def add2path() :
     system = platform.system()
     if system == "Windows":
