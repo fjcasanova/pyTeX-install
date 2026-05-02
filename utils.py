@@ -116,7 +116,6 @@ def compil(chemin_fichier):
         if shutil.which("pdflatex") is  None :
             add2path()
         cmd = ["pdflatex", "-interaction=nonstopmode", nom_fichier]
-    subprocess.run(["pdflatex", "-interaction=nonstopmode", nom_fichier], cwd=dossier, stdout=subprocess.DEVNULL)
     subprocess.run(cmd,cwd=dossier, stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL, check=True)
 
 from resolutions import*
