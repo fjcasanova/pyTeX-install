@@ -101,7 +101,12 @@ def add2path() :
             if os.path.exists(path):
                 os.environ["PATH"] += ";" + path
                 return True
-    elif system in ["Linux", "Darwin"]:
+    elif system == "Darwin":
+        path = "/Library/TeX/texbin"
+        if os.path.exists(path):
+            os.environ["PATH"] += os.pathsep + path
+            return True
+    elif system in ["Linux"]:
         return True
 
     return False
