@@ -121,6 +121,7 @@ def compil(chemin_fichier):
 #        if shutil.which("pdflatex") is  None :
 #            add2path()
 #        cmd = ["pdflatex", "-interaction=nonstopmode", nom_fichier]
+    add2path()
     subprocess.run(["latexmk", "-pdf", "-interaction=nonstopmode", nom_fichier],
                cwd=dossier,
                stdout=subprocess.DEVNULL,
