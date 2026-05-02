@@ -1,0 +1,30 @@
+name: Test LaTeX generation
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  test-macos:
+    runs-on: macos-latest
+
+    steps:
+    - name: Checkout repo
+      uses: actions/checkout@v3
+
+    - name: Install Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+
+    - name: Install LaTeX (MacTeX)
+      run: brew install --cask mactex
+
+    - name: Add LaTeX to PATH
+      run: echo "/Library/TeX/texbin" >> $GITHUB_PATH
+
+    - name: Install Python dependencies
+      run: pip install sympy latex2sympy2
+
+    - name: Run script
+      run: python ton_script.py
