@@ -7,10 +7,6 @@ import subprocess
 import os
 import re
 
-def compil(chemin_fichier):
-    dossier = os.path.dirname(chemin_fichier)
-    nom_fichier = os.path.basename(chemin_fichier)
-    subprocess.run(["pdflatex", "-interaction=nonstopmode", nom_fichier], cwd=dossier, stdout=subprocess.DEVNULL)
 
 def parentheses(expr) :
     expr = expr.replace("**", "^")
