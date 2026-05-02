@@ -67,7 +67,7 @@ elif system == "Linux" :
             print("Réponse invalide. Tapez 'oui' ou 'non'")
 elif system == "Darwin":
     if shutil.which("tlmgr") is  None :
-        choice = input(" Mac TeX n'est pas installé. Voulez-vous l'installer ? (oui/non) : ").strip().lower()
+        choice = "oui"
         if choice in ["oui", "o", "yes", "y", "Yes", "Oui", "OUI", "YES"]:
             try :
                 subprocess.run(["brew", "install", "--cask", "mactex"], check=True)
